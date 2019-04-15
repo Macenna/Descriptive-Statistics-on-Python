@@ -1,0 +1,55 @@
+def getAverage(lst):
+  count = 0
+  sum = 0
+  for i in lst:
+    count = count + 1
+    sum = sum + i
+  return sum/count
+
+getAverage([1,2,3,4])
+
+def getMaximum(lst):
+  max = lst[0]
+  for i in lst:
+    if i > max:
+      max = i
+  
+  return max
+
+getMaximum([3,-3,5,8,0])
+
+def getMinimum(lst):
+  min = lst[0]
+  for i in lst:
+    if i < min:
+      min = i
+  
+  return min
+
+getMinimum([3,-3,5,8,0])
+
+def getMedian(lst):
+  lst = sorted(lst)
+  ln = 0
+  for i in lst:
+    ln = ln + 1
+
+  if ln % 2 == 0:
+    return (lst[int(ln/2)] + lst[int((ln/2)) -1]) / 2
+  else:
+    return lst[int((ln-1)/2)]
+
+getMedian([1,2,3,3.5,7,3,4])
+
+def getStandardDeviation(lst):
+  import math
+  mean = getAverage(lst)
+  stdev = 0
+  ln = 0
+  for i in lst:
+    ln = ln + 1
+    stdev += (float(i) - mean)**2
+  
+  return math.sqrt(stdev/float(ln-1))
+
+getStandardDeviation([1,3,7,8,6])
